@@ -13,7 +13,7 @@ export default function Card(props) {
       newType: parseInt(e.target.value),
     });
   };
-  const quetion_change = (e) => {
+  const question_change = (e) => {
     props.dispatch({
       type: "changeQuetion",
       i: props.i,
@@ -45,8 +45,8 @@ export default function Card(props) {
         <input
           className="flex-1 text-slate-800 outline-0 border-b border-dotted border-slate-500 text-4xl placeholder-slate-600 px-2 mx-2"
           placeholder="Quetion"
-          onChange={quetion_change}
-          value={props.quetion ? props.quetion : ""}
+          onChange={question_change}
+          value={props.question ? props.question : ""}
         />
         <select className="flex-1 rounded" onChange={select_change}>
           {props.type_options.map((val, index) => {

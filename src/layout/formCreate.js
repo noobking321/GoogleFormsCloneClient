@@ -2,20 +2,23 @@ import React, { useReducer } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { BsFillPlusCircleFill, BsFillCheckCircleFill } from "react-icons/bs";
 
-import Card from "../components/card";
-import FormName from "../components/formName";
-import formReducer from "../reducers/form";
+import { postForm } from "../axios";
+import Card from "../components/formCreate/card";
+import FormName from "../components/formCreate/formName";
+import formReducer from "../reducers/formCreate";
 import config from "../config";
 
 const initialState = {
   name: config.untitledFormName,
-  quetions: [{ type: 0, quetion: null }],
+  questions: [{ type: 0, question: null }],
 };
 
 export default function Home() {
   const [state, dispatch] = useReducer(formReducer, initialState);
   const submit = () => {
-    console.log(state);
+    postForm(state).then((res) => {
+      alert(res.data.id);
+    });
   };
   return (
     <>
@@ -30,7 +33,7 @@ export default function Home() {
         <Droppable droppableId="cards">
           {(provided) => (
             <ul {...provided.droppableProps} ref={provided.innerRef}>
-              {state.quetions.map((val, index) => {
+              {state.questions.map((val, index) => {
                 return (
                   <Draggable key={index} draggableId={`${index}`} index={index}>
                     {(provided) => (
@@ -43,7 +46,7 @@ export default function Home() {
                         <Card
                           i={index}
                           type={val.type}
-                          quetion={val.quetion}
+                          question={val.question}
                           dispatch={dispatch}
                           type_options={config.type_options}
                           options={val.options}
