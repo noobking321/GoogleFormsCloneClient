@@ -1,5 +1,5 @@
 import React from "react";
-import {BsFillTrashFill} from "react-icons/bs"
+import { BsFillTrashFill } from "react-icons/bs";
 
 import Dropdown from "./options/dropdown";
 import LongAnswer from "./options/longAnswer";
@@ -65,7 +65,7 @@ export default function Card(props) {
             props.dispatch({ type: "removeCard", i: props.i });
           }}
         >
-          <BsFillTrashFill className="text-2xl"/>
+          <BsFillTrashFill className="text-2xl" />
         </button>
       </div>
     </div>
