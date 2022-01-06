@@ -22,7 +22,7 @@ export default function Home() {
   };
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className="md:flex flex-col items-center p-5">
         <FormName formName={state.name} dispatch={dispatch} />
       </div>
       <DragDropContext
@@ -41,7 +41,7 @@ export default function Home() {
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
-                        className="flex flex-col items-center"
+                        className="md:flex flex-col items-center"
                       >
                         <Card
                           i={index}
@@ -60,13 +60,13 @@ export default function Home() {
             </ul>
           )}
         </Droppable>
-        <div className="fixed bottom-20 right-20 ">
+        <div className="fixed bottom-8 right-8 md:bottom-20 md:right-20">
           <div className="flex">
-            <button className="text-4xl m-auto drop-shadow-lg" onClick={submit}>
+            <button className="text-4xl md:text-5xl m-auto drop-shadow-lg" onClick={submit}>
               <BsFillCheckCircleFill />
             </button>
             <button
-              className="text-4xl m-auto drop-shadow-lg px-2"
+              className="text-4xl md:text-5xl m-auto drop-shadow-lg px-2"
               onClick={() => {
                 dispatch({ type: "addCard" });
               }}

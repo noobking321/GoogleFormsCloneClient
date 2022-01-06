@@ -57,20 +57,20 @@ export default function Dropdown(props) {
                           >
                             {val || !index ? (
                               <button
-                                className="text-xl ml-5 px-2"
+                                className="text-xl md:ml-5 px-2"
                                 {...provided.dragHandleProps}
                               >
-                                <BsArrowsMove />
+                                <BsArrowsMove className="drop-shadow-lg"/>
                               </button>
                             ) : (
                               <span
-                                className="text-3xl ml-6 px-4"
+                                className="text-3xl md:ml-6 px-4"
                                 {...provided.dragHandleProps}
                               ></span>
                             )}
                             <input
                               index={index}
-                              className="m-2 mr-10 text-l border border-dotted border-slate-800 rounded-md p-2 text-slate-500 outline-0"
+                              className="m-2 md:mr-10 text-l border border-dotted border-slate-800 rounded-md p-2 text-slate-500 outline-0"
                               value={val}
                               placeholder={`Option ${index + 1}`}
                               onChange={option_change}
@@ -78,7 +78,7 @@ export default function Dropdown(props) {
                             {val && (
                               <>
                                 <button onClick={option_delete} index={index}>
-                                  <BsFillTrashFill className="text-l" />
+                                  <BsFillTrashFill className="text-l drop-shadow-lg" />
                                 </button>
                               </>
                             )}
