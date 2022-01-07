@@ -22,7 +22,6 @@ export default function Login() {
     setLoading(true);
     loginUser({ username, password })
       .then((res) => {
-        console.log(res);
         if (res.data.success) {
           user.login(res.data.token);
           navigate("../");

@@ -16,7 +16,6 @@ export default function FillForm(props) {
         });
     }
   }, []);
-  console.log(data);
   return (
     <div>
       {data && (
