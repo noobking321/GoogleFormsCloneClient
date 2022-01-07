@@ -60,13 +60,14 @@ export default function Dropdown(props) {
                                 className="text-xl md:ml-5 px-2"
                                 {...provided.dragHandleProps}
                               >
-                                <BsArrowsMove className="drop-shadow-lg"/>
+                                <BsArrowsMove className="drop-shadow-lg" />
                               </button>
                             ) : (
-                              <span
+                              <button
                                 className="text-3xl md:ml-6 px-4"
+                                disabled={true}
                                 {...provided.dragHandleProps}
-                              ></span>
+                              ></button>
                             )}
                             <input
                               index={index}

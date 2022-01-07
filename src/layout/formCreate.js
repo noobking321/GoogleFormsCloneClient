@@ -1,7 +1,9 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext, useEffect, useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { BsFillPlusCircleFill, BsFillCheckCircleFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
+import { AuthContext } from "../context/auth";
 import { postForm } from "../axios";
 import Card from "../components/formCreate/card";
 import FormName from "../components/formCreate/formName";
@@ -13,15 +15,30 @@ const initialState = {
   questions: [{ type: 0, question: null }],
 };
 
-export default function Home() {
+export default function FormCreate() {
+  const navigate = useNavigate();
+
+  const user = useContext(AuthContext);
+  useEffect(() => {
+    if (!user.user) {
+      navigate("../");
+    }
+  }, [user, navigate]);
   const [state, dispatch] = useReducer(formReducer, initialState);
+  const [loading, setLoading] = useState(false);
   const submit = () => {
-    postForm(state).then((res) => {
-      alert(res.data.id);
-    });
+    setLoading(true);
+    postForm(state)
+      .then((res) => {
+        navigate(`/viewform/${res.data.id}`);
+      })
+      .catch((err) => {
+        setLoading(false);
+      });
   };
   return (
     <>
+      {loading && <div>Loading</div>}
       <div className="md:flex flex-col items-center p-5">
         <FormName formName={state.name} dispatch={dispatch} />
       </div>
@@ -40,8 +57,8 @@ export default function Home() {
                       <li
                         ref={provided.innerRef}
                         {...provided.draggableProps}
-                        {...provided.dragHandleProps}
                         className="md:flex flex-col items-center"
+                        {...provided.dragHandleProps}
                       >
                         <Card
                           i={index}
@@ -50,6 +67,7 @@ export default function Home() {
                           dispatch={dispatch}
                           type_options={config.type_options}
                           options={val.options}
+                          dragHandleProps={provided.dragHandleProps}
                         />
                       </li>
                     )}
@@ -62,7 +80,10 @@ export default function Home() {
         </Droppable>
         <div className="fixed bottom-8 right-8 md:bottom-20 md:right-20">
           <div className="flex">
-            <button className="text-4xl md:text-5xl m-auto drop-shadow-lg" onClick={submit}>
+            <button
+              className="text-4xl md:text-5xl m-auto drop-shadow-lg"
+              onClick={submit}
+            >
               <BsFillCheckCircleFill />
             </button>
             <button

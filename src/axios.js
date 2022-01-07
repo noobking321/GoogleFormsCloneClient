@@ -2,26 +2,28 @@ const axios = require("axios");
 
 const { baseUrl } = require("./config");
 
+const headers = {
+  authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+};
+
+const testReq = () => {
+  return axios.get(`${baseUrl}/`, { headers });
+};
+
 const postForm = (data) => {
-  return axios
-    .post(`${baseUrl}/form`, data)
-    .then((response) => {
-      return response;
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  return axios.post(`${baseUrl}/form`, data, { headers });
 };
 
 const getForm = (id) => {
-  return axios
-    .get(`${baseUrl}/form?id=${id}`)
-    .then(function (response) {
-      return response;
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  return axios.get(`${baseUrl}/form?id=${id}`);
 };
 
-module.exports = { postForm, getForm };
+const loginUser = (data) => {
+  return axios.post(`${baseUrl}/user/login`, data);
+};
+
+const registerUser = (data) => {
+  return axios.post(`${baseUrl}/user/register`, data);
+};
+
+module.exports = { postForm, getForm, loginUser, registerUser, testReq };

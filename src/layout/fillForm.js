@@ -1,19 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getForm } from "../axios";
 
 export default function FillForm(props) {
   var { formId } = useParams();
   const [data, setData] = useState();
-  if (formId && !data) {
-    getForm(formId)
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => {
-        return err;
-      });
-  }
+  useEffect(() => {
+    if (formId && !data) {
+      getForm(formId)
+        .then((res) => {
+          setData(res.data);
+        })
+        .catch((err) => {
+          return err;
+        });
+    }
+  }, []);
   console.log(data);
   return (
     <div>
