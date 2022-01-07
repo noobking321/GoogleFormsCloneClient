@@ -25,6 +25,7 @@ export default function FormCreate() {
     }
   }, [user, navigate]);
   const [state, dispatch] = useReducer(formReducer, initialState);
+  console.log(state);
   const [loading, setLoading] = useState(false);
   const submit = () => {
     setLoading(true);
