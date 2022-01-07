@@ -11,7 +11,6 @@ export default function Dropdown(props) {
     const items = Array.from(opts);
     const index = parseInt(e.target.getAttribute("index"));
     items[index] = e.target.value;
-    console.log(index, props.options.length - 1);
     if (index === props.options.length - 1) {
       items.push("");
     } else if (!e.target.value) {
