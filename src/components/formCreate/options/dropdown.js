@@ -4,7 +4,7 @@ import { BsArrowsMove, BsFillTrashFill } from "react-icons/bs";
 
 export default function Dropdown(props) {
   const opts = props.options ? Array.from(props.options) : [];
-  if (opts[opts.length - 1]) {
+  if (!opts.length || opts[opts.length - 1]) {
     opts.push("");
   }
   const option_change = (e) => {
