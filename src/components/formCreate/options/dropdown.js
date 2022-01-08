@@ -59,7 +59,7 @@ export default function Dropdown(props) {
                           >
                             {val || !index ? (
                               <button
-                                className="text-xl md:ml-5 px-2"
+                                className="text-xl md:ml-5 p-2"
                                 {...provided.dragHandleProps}
                               >
                                 <BsArrowsMove className="drop-shadow-lg" />

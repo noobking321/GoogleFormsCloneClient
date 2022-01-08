@@ -42,8 +42,9 @@ export default function Register() {
       .catch((err) => {
         setErrors(err.response.data.errors);
         Object.keys(err.response.data.errors).map((val) => {
-          document.getElementById(val).classList.remove("border-slate-800");
-          return document.getElementById(val).classList.add("border-red-400");
+          const el = document.getElementById(val);
+          el.classList.remove("border-slate-800");
+          return el.classList.add("border-red-400");
         });
         setLoading(false);
       });
@@ -51,7 +52,7 @@ export default function Register() {
   return (
     <div className="md:flex flex-col items-center p-5">
       <div className="bg-white border-2 border-slate-700 m-5 rounded-md drop-shadow-lg md:24 md:px-52 py-20 text-center">
-        <div className="text-3xl ml-5">Register</div>
+        <div className="text-3xl ml-5 text-left">Register</div>
         <br />
         <form>
           <input
@@ -139,7 +140,9 @@ export default function Register() {
             }}
           />
           {errors && (
-            <div className="ml-5 text-red-500 text-left">{errors.confirm_password}</div>
+            <div className="ml-5 text-red-500 text-left">
+              {errors.confirm_password}
+            </div>
           )}
           <br />
           <div className="text-center">

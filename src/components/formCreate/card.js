@@ -1,5 +1,5 @@
 import React from "react";
-import { BsFillTrashFill } from "react-icons/bs";
+import { BsFillTrashFill, BsArrowsMove } from "react-icons/bs";
 
 import Dropdown from "./options/dropdown";
 import LongAnswer from "./options/longAnswer";
@@ -40,7 +40,15 @@ export default function Card(props) {
     }
   };
   return (
-    <div className="bg-white border-2 border-slate-700 p-5 m-5 rounded-md drop-shadow-lg py-10">
+    <div className="bg-white border-2 border-slate-700 p-5 m-10 mt-0 rounded-md drop-shadow-lg py-10">
+      <div className="">
+        <div
+          className=" text-2xl bg-white p-2.5 rounded-full border-2 border-slate-700 z-10 inline-block absolute -top-5 -left-5 drop-shadow-xl"
+          {...props.provided.dragHandleProps}
+        >
+          <BsArrowsMove />
+        </div>
+      </div>
       <div className="md:mx-10 my-5">
         <input
           className="md:flex-1 text-slate-800 outline-0 border-b border-dotted border-slate-500 text-4xl placeholder-slate-600 px-2 mx-2 w-full md:w-fit"

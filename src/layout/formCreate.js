@@ -77,16 +77,15 @@ export default function FormCreate() {
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         className="md:flex flex-col items-center"
-                        {...provided.dragHandleProps}
                       >
                         <Card
+                          provided={provided}
                           i={index}
                           type={val.type}
                           question={val.question}
                           dispatch={dispatch}
                           type_options={config.type_options}
                           options={val.options}
-                          dragHandleProps={provided.dragHandleProps}
                         />
                       </li>
                     )}

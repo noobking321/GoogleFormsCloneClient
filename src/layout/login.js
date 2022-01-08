@@ -39,7 +39,7 @@ export default function Login() {
   return (
     <div className="md:flex flex-col items-center p-5">
       <div className=" bg-white border-2 border-slate-700 m-5 rounded-md drop-shadow-lg md:24 md:px-52 py-20 text-center">
-        <div className="text-3xl ml-5">Login</div>
+        <div className="text-3xl ml-5 text-left">Login</div>
         <br />
         <form>
           <input
