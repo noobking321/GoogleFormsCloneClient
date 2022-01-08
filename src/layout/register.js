@@ -50,7 +50,7 @@ export default function Register() {
   };
   return (
     <div className="md:flex flex-col items-center p-5">
-      <div className="bg-white border-2 border-slate-700 m-5 rounded-md drop-shadow-lg px-52 py-20">
+      <div className="bg-white border-2 border-slate-700 m-5 rounded-md drop-shadow-lg md:24 md:px-52 py-20 text-center">
         <div className="text-3xl ml-5">Register</div>
         <br />
         <form>
@@ -65,7 +65,9 @@ export default function Register() {
             }}
           />
           {errors && (
-            <div className="ml-5 text-red-500">{errors.first_name}</div>
+            <div className="ml-5 text-red-500 text-left">
+              {errors.first_name}
+            </div>
           )}
           <br />
           <input
@@ -79,7 +81,9 @@ export default function Register() {
             }}
           />
           {errors && (
-            <div className="ml-5 text-red-500">{errors.last_name}</div>
+            <div className="ml-5 text-red-500 text-left">
+              {errors.last_name}
+            </div>
           )}
           <br />
           <input
@@ -92,7 +96,9 @@ export default function Register() {
               setUsername(e.target.value);
             }}
           />
-          {errors && <div className="ml-5 text-red-500">{errors.username}</div>}
+          {errors && (
+            <div className="ml-5 text-red-500 text-left">{errors.username}</div>
+          )}
           <br />
           <input
             className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg w-96"
@@ -104,7 +110,9 @@ export default function Register() {
               setEmail(e.target.value);
             }}
           />
-          {errors && <div className="ml-5 text-red-500">{errors.email}</div>}
+          {errors && (
+            <div className="ml-5 text-red-500 text-left">{errors.email}</div>
+          )}
           <br />
           <input
             className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg w-96"
@@ -116,7 +124,9 @@ export default function Register() {
               setPassword(e.target.value);
             }}
           />
-          {errors && <div className="ml-5 text-red-500">{errors.password}</div>}
+          {errors && (
+            <div className="ml-5 text-red-500 text-left">{errors.password}</div>
+          )}
           <br />
           <input
             className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg w-96"
@@ -129,20 +139,22 @@ export default function Register() {
             }}
           />
           {errors && (
-            <div className="ml-5 text-red-500">{errors.confirm_password}</div>
+            <div className="ml-5 text-red-500 text-left">{errors.confirm_password}</div>
           )}
           <br />
-          <button
-            className="m-5 ml-20 rounded-lg bg-blue-300 hover:shadow-lg border-2 border-slate-700 text-slate-900 w-32 h-10"
-            type="submit"
-            onClick={submit}
-          >
-            {loading ? (
-              <ImSpinner2 className="animate-spin text-xl mx-12" />
-            ) : (
-              "Register"
-            )}
-          </button>
+          <div className="text-center">
+            <button
+              className="m-5 item rounded-lg bg-blue-300 hover:shadow-lg border-2 border-slate-700 text-slate-900 w-32 h-10"
+              onClick={submit}
+              type="submit"
+            >
+              {loading ? (
+                <ImSpinner2 className="animate-spin text-xl mx-12" />
+              ) : (
+                "Register"
+              )}
+            </button>
+          </div>
         </form>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React, { useReducer, useContext, useEffect, useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { BsFillPlusCircleFill, BsFillCheckCircleFill } from "react-icons/bs";
+import { ImSpinner2 } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../context/auth";
@@ -34,11 +35,21 @@ export default function FormCreate() {
       })
       .catch((err) => {
         setLoading(false);
+        alert(err.response.data.error);
       });
   };
   return (
     <>
-      {loading && <div>Loading</div>}
+      {loading && (
+        <div className="w-full h-full fixed block top-0 left-0 bg-black opacity-75 z-50">
+          <span
+            className="text-white top-1/2 my-0 mx-auto block relative w-0 h-0"
+            style={{ top: "50%" }}
+          >
+            <ImSpinner2 className="animate-spin text-5xl" />
+          </span>
+        </div>
+      )}
       <div className="md:flex flex-col items-center p-5">
         <FormName formName={state.name} dispatch={dispatch} />
       </div>

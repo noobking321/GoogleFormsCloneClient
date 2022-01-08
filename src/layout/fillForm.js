@@ -9,13 +9,14 @@ export default function FillForm(props) {
     if (formId && !data) {
       getForm(formId)
         .then((res) => {
+          console.log(res.data);
           setData(res.data);
         })
         .catch((err) => {
           return err;
         });
     }
-  }, []);
+  }, [data, formId]);
   return (
     <div>
       {data && (

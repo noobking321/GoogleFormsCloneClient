@@ -38,7 +38,7 @@ export default function Login() {
   };
   return (
     <div className="md:flex flex-col items-center p-5">
-      <div className=" bg-white border-2 border-slate-700 m-5 rounded-md drop-shadow-lg px-52 py-20">
+      <div className=" bg-white border-2 border-slate-700 m-5 rounded-md drop-shadow-lg md:24 md:px-52 py-20 text-center">
         <div className="text-3xl ml-5">Login</div>
         <br />
         <form>
@@ -55,7 +55,9 @@ export default function Login() {
           {errors && (
             <>
               <br />
-              <div className="ml-5 text-red-500">{errors.username}</div>
+              <div className="ml-5 text-red-500 text-left">
+                {errors.username}
+              </div>
             </>
           )}
           <br />
@@ -72,21 +74,25 @@ export default function Login() {
           {errors && (
             <>
               <br />
-              <div className="ml-5 text-red-500">{errors.password}</div>
+              <div className="ml-5 text-red-500 text-left">
+                {errors.password}
+              </div>
             </>
           )}
           <br />
-          <button
-            className="m-5 ml-20 rounded-lg bg-blue-300 hover:shadow-lg border-2 border-slate-700 text-slate-900 w-32 h-10"
-            onClick={submit}
-            type="submit"
-          >
-            {loading ? (
-              <ImSpinner2 className="animate-spin text-xl mx-12" />
-            ) : (
-              "Login"
-            )}
-          </button>
+          <div className="text-center">
+            <button
+              className="m-5 item rounded-lg bg-blue-300 hover:shadow-lg border-2 border-slate-700 text-slate-900 w-32 h-10"
+              onClick={submit}
+              type="submit"
+            >
+              {loading ? (
+                <ImSpinner2 className="animate-spin text-xl mx-12" />
+              ) : (
+                "Login"
+              )}
+            </button>
+          </div>
         </form>
       </div>
     </div>
