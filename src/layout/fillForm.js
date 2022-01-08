@@ -11,6 +11,7 @@ export default function FillForm(props) {
   var { formId } = useParams();
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [response, setResponse] = useState([]);
   useEffect(() => {
     setLoading(true);
@@ -23,7 +24,7 @@ export default function FillForm(props) {
         })
         .catch((err) => {
           setLoading(false);
-          return err;
+          setError(err.response.data.error);
         });
     }
   }, [formId]);
@@ -80,6 +81,7 @@ export default function FillForm(props) {
           </div>
         </>
       )}
+      {error && <div className="text-5xl px-24 py-12">{error}</div>}
     </>
   );
 }
