@@ -18,6 +18,10 @@ const getForm = (id) => {
   return axios.get(`${baseUrl}/form/${id}`);
 };
 
+const postResponse = (id, data) => {
+  return axios.post(`${baseUrl}/form/${id}/response`, { responses: data });
+};
+
 const loginUser = (data) => {
   return axios.post(`${baseUrl}/user/login`, data);
 };
@@ -26,4 +30,11 @@ const registerUser = (data) => {
   return axios.post(`${baseUrl}/user/register`, data);
 };
 
-module.exports = { postForm, getForm, loginUser, registerUser, testReq };
+module.exports = {
+  postForm,
+  getForm,
+  loginUser,
+  registerUser,
+  postResponse,
+  testReq,
+};

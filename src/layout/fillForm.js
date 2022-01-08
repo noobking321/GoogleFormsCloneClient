@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ImSpinner2 } from "react-icons/im";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 
-import { getForm } from "../axios";
+import { getForm, postResponse } from "../axios";
 import FormName from "../components/fillForm/formName";
 import Card from "../components/fillForm/card";
 
@@ -11,7 +12,6 @@ export default function FillForm(props) {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState([]);
-  console.log(response);
   useEffect(() => {
     setLoading(true);
     if (formId) {
@@ -27,6 +27,18 @@ export default function FillForm(props) {
         });
     }
   }, [formId]);
+  const submit = (e) => {
+    setLoading(true);
+    postResponse(formId, response)
+      .then(() => {
+        setLoading(false);
+        alert("Your response has been recorded.");
+      })
+      .catch((err) => {
+        setLoading(false);
+        alert(err.response.data.error);
+      });
+  };
   return (
     <>
       {loading && (
@@ -55,6 +67,16 @@ export default function FillForm(props) {
                 />
               );
             })}
+          </div>
+          <div className="fixed bottom-8 right-8 md:bottom-20 md:right-20">
+            <div className="flex">
+              <button
+                className="text-4xl md:text-5xl m-auto drop-shadow-lg"
+                onClick={submit}
+              >
+                <BsFillCheckCircleFill />
+              </button>
+            </div>
           </div>
         </>
       )}
