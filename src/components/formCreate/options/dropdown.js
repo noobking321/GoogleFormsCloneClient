@@ -1,6 +1,7 @@
 import React from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { BsArrowsMove, BsFillTrashFill } from "react-icons/bs";
+import { BsArrowsMove } from "react-icons/bs";
+import { FaTrash } from "react-icons/fa";
 
 export default function Dropdown(props) {
   const opts = props.options ? Array.from(props.options) : [];
@@ -81,7 +82,7 @@ export default function Dropdown(props) {
                             {val && (
                               <>
                                 <button onClick={option_delete} index={index}>
-                                  <BsFillTrashFill className="text-l drop-shadow-lg" />
+                                  <FaTrash className="text-l drop-shadow-lg" />
                                 </button>
                               </>
                             )}

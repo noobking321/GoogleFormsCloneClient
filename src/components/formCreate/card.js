@@ -1,5 +1,6 @@
 import React from "react";
-import { BsFillTrashFill, BsArrowsMove } from "react-icons/bs";
+import { BsArrowsMove } from "react-icons/bs";
+import { FaTrash } from "react-icons/fa";
 
 import Dropdown from "./options/dropdown";
 import LongAnswer from "./options/longAnswer";
@@ -76,7 +77,7 @@ export default function Card(props) {
             props.dispatch({ type: "removeCard", i: props.i });
           }}
         >
-          <BsFillTrashFill className="text-2xl drop-shadow-lg" />
+          <FaTrash className="text-2xl drop-shadow-lg" />
         </button>
       </div>
     </div>
