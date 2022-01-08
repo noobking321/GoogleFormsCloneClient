@@ -15,7 +15,7 @@ const postForm = (data) => {
 };
 
 const getForm = (id) => {
-  return axios.get(`${baseUrl}/form?id=${id}`);
+  return axios.get(`${baseUrl}/form/${id}`);
 };
 
 const loginUser = (data) => {
