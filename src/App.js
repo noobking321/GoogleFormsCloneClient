@@ -5,6 +5,7 @@ import FillForm from "./layout/fillForm";
 import FormCreate from "./layout/formCreate";
 import Home from "./layout/home";
 import Login from "./layout/login";
+import NotFound from "./layout/notFound";
 import Register from "./layout/register";
 
 function App() {
@@ -12,11 +13,12 @@ function App() {
     <>
       <Navigationbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="createform" element={<FormCreate />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="viewform/:formId" element={<FillForm />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="createform" element={<FormCreate />} />
+        <Route exact path="login" element={<Login />} />
+        <Route exact path="register" element={<Register />} />
+        <Route exact path="viewform/:formId" element={<FillForm />} />
+        <Route path="/404" element={<NotFound />} />
       </Routes>
     </>
   );
