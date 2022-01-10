@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { ImSpinner2 } from "react-icons/im";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 
 import { getForm, postResponse } from "../axios";
 import FormName from "../components/fillForm/formName";
 import Card from "../components/fillForm/card";
+import Loading from "../components/loading";
 
-export default function FillForm(props) {
+export default function FillForm() {
   var { formId } = useParams();
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
@@ -42,16 +42,7 @@ export default function FillForm(props) {
   };
   return (
     <>
-      {loading && (
-        <div className="w-full h-full fixed block top-0 left-0 bg-black opacity-75 z-50">
-          <span
-            className="text-white top-1/2 my-0 mx-auto block relative w-0 h-0"
-            style={{ top: "50%" }}
-          >
-            <ImSpinner2 className="animate-spin text-5xl" />
-          </span>
-        </div>
-      )}
+      {loading && <Loading />}
       {data && (
         <>
           <div className="md:flex flex-col items-center p-5">

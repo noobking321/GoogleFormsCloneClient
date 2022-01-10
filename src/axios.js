@@ -22,6 +22,10 @@ const getForms = (id) => {
   return axios.get(`${serverUrl}/form/`, { headers });
 };
 
+const getResponses = (id) => {
+  return axios.get(`${serverUrl}/form/${id}/response`, { headers });
+};
+
 const postResponse = (id, data) => {
   return axios.post(`${serverUrl}/form/${id}/response`, { responses: data });
 };
@@ -40,6 +44,7 @@ module.exports = {
   getForms,
   loginUser,
   registerUser,
+  getResponses,
   postResponse,
   testReq,
 };

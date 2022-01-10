@@ -1,16 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ImSpinner2 } from "react-icons/im";
 import { AiFillFileAdd } from "react-icons/ai";
 
 import { getForms } from "../axios";
 import { AuthContext } from "../context/auth";
+import Loading from "../components/loading";
 
 export default function MyForms() {
   const navigate = useNavigate();
   const user = useContext(AuthContext);
   const [forms, setForms] = useState([]);
-  console.log(forms);
+
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     if (!user.user) {
@@ -20,6 +20,7 @@ export default function MyForms() {
       getForms()
         .then((res) => {
           setLoading(false);
+
           setForms(res.data.forms);
         })
         .catch(() => {
@@ -30,17 +31,7 @@ export default function MyForms() {
   }, [user, navigate]);
   return (
     <>
-      {" "}
-      {loading && (
-        <div className="w-full h-full fixed block top-0 left-0 bg-black opacity-75 z-50">
-          <span
-            className="text-white top-1/2 my-0 mx-auto block relative w-0 h-0"
-            style={{ top: "50%" }}
-          >
-            <ImSpinner2 className="animate-spin text-5xl" />
-          </span>
-        </div>
-      )}
+      {loading && <Loading />}
       {forms && (
         <>
           <div className="text-4xl mx-20 my-10">My forms</div>
@@ -68,7 +59,6 @@ export default function MyForms() {
                       className="text-blue-700 hover:text-blue-500"
                     >
                       {`${val.responses.length} Responses`}
-                      
                     </Link>
                   </div>
                 </div>
