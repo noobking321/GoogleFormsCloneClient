@@ -17,16 +17,18 @@ export default function Responses() {
         .then((res) => {
           setLoading(false);
           setQuestions(
-            res.data.questions.map((val, i) => {
-              return {
-                Header: val.question,
-                accessor: `col${i}`,
-              };
-            })
+            [{ Header: "SNo.", accessor: "sno" }].concat(
+              res.data.questions.map((val, i) => {
+                return {
+                  Header: val.question,
+                  accessor: `col${i}`,
+                };
+              })
+            )
           );
           setResponses(
-            res.data.responses.map((val) => {
-              var resps = {};
+            res.data.responses.map((val, no) => {
+              var resps = { sno: no + 1 };
               val.map((re, i) => {
                 if (res.data.questions[i].type === 2) {
                   return (resps[`col${i}`] = res.data.questions[i].options[re]);
@@ -49,7 +51,6 @@ export default function Responses() {
       {questions && responses && (
         <div className="m-20">
           <ResponseTable questions={questions} responses={responses} />
-          <button>Download</button>
         </div>
       )}
     </>
