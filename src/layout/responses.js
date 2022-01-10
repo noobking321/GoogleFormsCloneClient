@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getResponses } from "../axios";
 import ResponseTable from "../components/responseTable";
 import Loading from "../components/loading";
+import { generateQues, generateResps } from "../utils";
 
 export default function Responses() {
   var { formId } = useParams();
@@ -16,28 +17,8 @@ export default function Responses() {
       getResponses(formId)
         .then((res) => {
           setLoading(false);
-          setQuestions(
-            [{ Header: "SNo.", accessor: "sno" }].concat(
-              res.data.questions.map((val, i) => {
-                return {
-                  Header: val.question,
-                  accessor: `col${i}`,
-                };
-              })
-            )
-          );
-          setResponses(
-            res.data.responses.map((val, no) => {
-              var resps = { sno: no + 1 };
-              val.map((re, i) => {
-                if (res.data.questions[i].type === 2) {
-                  return (resps[`col${i}`] = res.data.questions[i].options[re]);
-                }
-                return (resps[`col${i}`] = re);
-              });
-              return resps;
-            })
-          );
+          setQuestions(generateQues(res.data.questions));
+          setResponses(generateResps(res.data.responses, res.data.questions));
         })
         .catch((err) => {
           setLoading(false);

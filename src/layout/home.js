@@ -12,12 +12,12 @@ export default function Home() {
     }
   }, [user, navigate]);
   return (
-    <div className="text-5xl p-20 text-center">
-      <Link to="login" className="text-blue-700 hover:text-blue-500">
+    <div className="text-5xl p-20 text-center dark:text-white">
+      <Link to="login" className="text-blue-700 hover:text-blue-500 dark:text-blue-400">
         Login
       </Link>{" "}
       or{" "}
-      <Link to="register" className="text-blue-700 hover:text-blue-500">
+      <Link to="register" className="text-blue-700 hover:text-blue-500 dark:text-blue-400">
         Register
       </Link>{" "}
       to make forms...

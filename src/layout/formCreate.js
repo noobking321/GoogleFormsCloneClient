@@ -102,7 +102,7 @@ export default function FormCreate() {
               className="text-4xl md:text-5xl m-auto drop-shadow-lg"
               onClick={submit}
             >
-              <BsFillCheckCircleFill />
+              <BsFillCheckCircleFill className="dark:text-white"/>
             </button>
             <button
               className="text-4xl md:text-5xl m-auto drop-shadow-lg px-2"
@@ -110,7 +110,7 @@ export default function FormCreate() {
                 dispatch({ type: "addCard" });
               }}
             >
-              <BsFillPlusCircleFill />
+              <BsFillPlusCircleFill className="dark:text-white"/>
             </button>
           </div>
         </div>

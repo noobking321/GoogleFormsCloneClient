@@ -1,17 +1,37 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 import { AuthContext } from "../context/auth";
 
 export default function Navigationbar() {
+  const html = document.querySelector("html");
+  if (localStorage.getItem("darkMode")) {
+    html.classList.add("dark");
+  } else {
+    html.classList.remove("dark");
+  }
   const user = useContext(AuthContext);
-  const [navbarOpen, setNavbarOpen] = React.useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode"));
+  const change_dark_mode = () => {
+    const html = document.querySelector("html");
+    if (darkMode) {
+      localStorage.removeItem("darkMode", true);
+      html.classList.remove("dark");
+      setDarkMode(false);
+    } else {
+      localStorage.setItem("darkMode", true);
+      html.classList.add("dark");
+      setDarkMode(true);
+    }
+  };
   const navbars = user.user ? (
     <li className="nav-item">
       <button
         onClick={user.logout}
-        className="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75 text-xl"
+        className="px-3 pr-6 mx-2 py-2 flex items-center uppercase font-bold leading-snug text-white text-xl hover:bg-blue-600 rounded-full"
       >
         <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
         <span className="ml-2">Logout</span>
@@ -21,26 +41,24 @@ export default function Navigationbar() {
     <>
       <li className="nav-item">
         <Link
-          className="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75 text-xl"
+          className="px-3 pr-6 mx-2 py-2 flex items-center uppercase font-bold leading-snug text-white text-xl hover:bg-blue-600 rounded-full"
           to="login"
         >
-          <i className="fab fa-facebook-square text-lg leading-lg text-white opacity-75"></i>
           <span className="ml-2">Login</span>
         </Link>
       </li>
       <li className="nav-item">
         <Link
           to="register"
-          className="px-3 py-2 flex items-center uppercase font-bold leading-snug text-white hover:opacity-75 text-xl"
+          className="px-3 pr-6 mx-2 py-2 flex items-center uppercase font-bold leading-snug text-white text-xl hover:bg-blue-600 rounded-full"
         >
-          <i className="fab fa-twitter text-lg leading-lg text-white opacity-75"></i>
           <span className="ml-2">Register</span>
         </Link>
       </li>
     </>
   );
   return (
-    <nav className="flex flex-wrap items-center justify-between px-5 py-5 bg-blue-500 mb-3 shadow-xl border-slate-700 sticky top-0 z-10">
+    <nav className="flex flex-wrap items-center justify-between px-5 py-5 bg-blue-500 dark:bg-slate-800 mb-3 shadow-xl border-slate-700 sticky top-0 z-10">
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full sticky flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <Link
@@ -65,6 +83,9 @@ export default function Navigationbar() {
           id="example-navbar-danger"
         >
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+            <li className="nav-item mx-2">
+              <button className="hover:bg-blue-600 rounded-full" onClick={change_dark_mode}>{darkMode ? <FaSun className="text-white m-3 text-xl" /> : <FaMoon className="text-white m-3 text-xl"/>} </button>
+            </li>
             {navbars}
           </ul>
         </div>

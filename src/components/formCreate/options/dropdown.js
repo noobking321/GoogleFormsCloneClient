@@ -63,7 +63,7 @@ export default function Dropdown(props) {
                                 className="text-xl md:ml-5 p-2"
                                 {...provided.dragHandleProps}
                               >
-                                <BsArrowsMove className="drop-shadow-lg" />
+                                <BsArrowsMove className="drop-shadow-lg dark:text-white" />
                               </button>
                             ) : (
                               <button
@@ -74,7 +74,7 @@ export default function Dropdown(props) {
                             )}
                             <input
                               index={index}
-                              className="m-2 md:mr-10 text-l border border-dotted border-slate-800 rounded-md p-2 text-slate-500 outline-0"
+                              className="m-2 md:mr-10 text-l border border-dotted border-slate-800 rounded-md p-2 text-slate-500 outline-0 dark:bg-slate-700 dark:text-slate-300 dark:border-white"
                               value={val}
                               placeholder={`Option ${index + 1}`}
                               onChange={option_change}
@@ -82,7 +82,7 @@ export default function Dropdown(props) {
                             {val && (
                               <>
                                 <button onClick={option_delete} index={index}>
-                                  <FaTrash className="text-l drop-shadow-lg" />
+                                  <FaTrash className="text-l drop-shadow-lg dark:text-white" />
                                 </button>
                               </>
                             )}

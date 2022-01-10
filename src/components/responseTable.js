@@ -32,7 +32,7 @@ export default function ResponseTable({ questions, responses }) {
               {headerGroup.headers.map((column) => (
                 <th
                   {...column.getHeaderProps(column.getSortByToggleProps())}
-                  className="border-2 border-slate-800 mb-3 shadow-xl bg-blue-400 text-white p-5"
+                  className="border-2 border-slate-800 mb-3 shadow-xl bg-blue-400 text-white p-5 dark:text-white dark:border-white dark:bg-blue-500" 
                 >
                   {column.render("Header")}
                   <span>
@@ -60,7 +60,7 @@ export default function ResponseTable({ questions, responses }) {
                   return (
                     <td
                       {...cell.getCellProps()}
-                      className="border-2 border-slate-800 bg-white p-5"
+                      className="border-2 border-slate-800 bg-white p-5 dark:bg-slate-800 dark:text-white dark:border-white"
                     >
                       {cell.render("Cell")}
                     </td>
@@ -75,16 +75,16 @@ export default function ResponseTable({ questions, responses }) {
         {pageOptions.length ? (
           <>
             <button onClick={() => previousPage()} hidden={!canPreviousPage}>
-              <MdOutlineNavigateBefore className="text-2xl m-2" />
+              <MdOutlineNavigateBefore className="text-2xl m-2 dark:text-white" />
             </button>
             <button onClick={() => nextPage()} hidden={!canNextPage}>
-              <MdOutlineNavigateNext className="text-2xl m-2" />
+              <MdOutlineNavigateNext className="text-2xl m-2 dark:text-white" />
             </button>
           </>
         ) : (
           ""
         )}
-        <div className="my-2">
+        <div className="my-2 dark:text-white">
           Page{" "}
           <em>
             {pageIndex + 1} of {pageOptions.length}
@@ -92,7 +92,7 @@ export default function ResponseTable({ questions, responses }) {
         </div>
         <select
           value={pageSize}
-          className="my-2 form-select appearance-none drop-shadow-lg px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          className="my-2 form-select appearance-none drop-shadow-lg px-3 py-1.5 text-base font-normal text-gray-800 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none dark:bg-slate-700 dark:text-white"
           onChange={(e) => {
             setPageSize(Number(e.target.value));
           }}

@@ -34,10 +34,10 @@ export default function MyForms() {
       {loading && <Loading />}
       {forms && (
         <>
-          <div className="text-4xl mx-20 my-10">My forms</div>
-          <div className="md:flex flex-wrap">
+          <div className="text-4xl mx-52 my-10 dark:text-white">My forms</div>
+          <div className="md:flex flex-wrap mx-40">
             <div
-              className="bg-amber-100 border-2 border-slate-700 p-24 m-12 rounded-md drop-shadow-lg w-64"
+              className="bg-amber-100 border-2 border-slate-700 p-24 m-12 rounded-md drop-shadow-lg w-64 dark:text-white dark:bg-slate-700"
               key={0}
             >
               <Link className="text-6xl" to={"../createform/"}>
@@ -47,7 +47,7 @@ export default function MyForms() {
             {forms.map((val, i) => {
               return (
                 <div
-                  className="bg-amber-100 border-2 border-slate-700 p-5 m-12 rounded-md drop-shadow-lg py-10 w-64"
+                  className="bg-amber-100 border-2 border-slate-700 p-5 m-12 rounded-md drop-shadow-lg py-10 w-64 dark:text-white dark:bg-slate-700"
                   key={i + 1}
                 >
                   <div className="text-3xl mb-10">
@@ -56,7 +56,7 @@ export default function MyForms() {
                   <div className="text-2xl">
                     <Link
                       to={`../responses/${val._id}`}
-                      className="text-blue-700 hover:text-blue-500"
+                      className="text-blue-700 hover:text-blue-500 dark:text-blue-300"
                     >
                       {`${val.responses.length} Responses`}
                     </Link>

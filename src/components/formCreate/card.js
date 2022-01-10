@@ -41,10 +41,10 @@ export default function Card(props) {
     }
   };
   return (
-    <div className="bg-white border-2 border-slate-700 p-5 m-10 mt-0 rounded-md drop-shadow-lg py-10">
+    <div className="bg-white border-2 border-slate-700 p-5 m-10 mt-0 rounded-md drop-shadow-lg py-10 dark:bg-slate-700">
       <div className="">
         <div
-          className=" text-2xl bg-white p-2.5 rounded-full border-2 border-slate-700 z-10 inline-block absolute -top-5 -left-5 drop-shadow-xl"
+          className=" text-2xl bg-white p-2.5 rounded-full border-2 border-slate-700 z-10 inline-block absolute -top-5 -left-5 drop-shadow-xl dark:bg-slate-700 dark:text-white"
           {...props.provided.dragHandleProps}
         >
           <BsArrowsMove />
@@ -52,13 +52,13 @@ export default function Card(props) {
       </div>
       <div className="md:mx-10 my-5">
         <input
-          className="md:flex-1 text-slate-800 outline-0 border-b border-dotted border-slate-500 text-4xl placeholder-slate-600 px-2 mx-2 w-full md:w-fit"
+          className="md:flex-1 text-slate-800 outline-0 border-b border-dotted border-slate-500 text-4xl placeholder-slate-600 px-2 mx-2 w-full md:w-fit dark:bg-slate-700 dark:text-white dark:placeholder-slate-300 dark:border-white"
           placeholder="Question"
           onChange={question_change}
           value={props.question ? props.question : ""}
         />
         <select
-          className="flex-1 form-select appearance-none drop-shadow-sm px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none mt-6 md:mt-0"
+          className="flex-1 form-select appearance-none drop-shadow-sm px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none mt-6 md:mt-0 dark:bg-slate-700 dark:text-white"
           onChange={select_change}
         >
           {props.type_options.map((val, index) => {
@@ -77,7 +77,7 @@ export default function Card(props) {
             props.dispatch({ type: "removeCard", i: props.i });
           }}
         >
-          <FaTrash className="text-2xl drop-shadow-lg" />
+          <FaTrash className="text-2xl drop-shadow-lg dark:text-white" />
         </button>
       </div>
     </div>
