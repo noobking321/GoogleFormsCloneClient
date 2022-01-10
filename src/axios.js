@@ -18,6 +18,10 @@ const getForm = (id) => {
   return axios.get(`${serverUrl}/form/${id}`);
 };
 
+const getForms = (id) => {
+  return axios.get(`${serverUrl}/form/`, { headers });
+};
+
 const postResponse = (id, data) => {
   return axios.post(`${serverUrl}/form/${id}/response`, { responses: data });
 };
@@ -33,6 +37,7 @@ const registerUser = (data) => {
 module.exports = {
   postForm,
   getForm,
+  getForms,
   loginUser,
   registerUser,
   postResponse,

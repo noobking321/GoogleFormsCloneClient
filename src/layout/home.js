@@ -8,7 +8,7 @@ export default function Home() {
   const user = useContext(AuthContext);
   useEffect(() => {
     if (user.user) {
-      navigate("/createform");
+      navigate("/myforms");
     }
   }, [user, navigate]);
   return (
