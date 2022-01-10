@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import SnowStorm from "react-snowstorm";
 
 import Navigationbar from "./components/navigationbar";
 import FillForm from "./layout/fillForm";
@@ -11,9 +13,17 @@ import Register from "./layout/register";
 import Responses from "./layout/responses";
 
 function App() {
+  const html = document.querySelector("html");
+  if (localStorage.getItem("darkMode")) {
+    html.classList.add("dark");
+  } else {
+    html.classList.remove("dark");
+  }
+  const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode"));
   return (
     <>
-      <Navigationbar />
+      <Navigationbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      {darkMode && <SnowStorm />}
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="createform" element={<FormCreate />} />

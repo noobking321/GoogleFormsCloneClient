@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import { getResponses } from "../axios";
 import ResponseTable from "../components/responseTable";
 import Loading from "../components/loading";
 import { generateQues, generateResps } from "../utils";
+import { AuthContext } from "../context/auth";
 
 export default function Responses() {
+  const user = useContext(AuthContext);
   var { formId } = useParams();
   const [questions, setQuestions] = useState();
   const [responses, setResponses] = useState();
@@ -14,7 +16,7 @@ export default function Responses() {
   useEffect(() => {
     setLoading(true);
     if (formId) {
-      getResponses(formId)
+      getResponses(formId, user.user.token)
         .then((res) => {
           setLoading(false);
           setQuestions(generateQues(res.data.questions));
@@ -25,7 +27,7 @@ export default function Responses() {
           alert(err.response.data.error);
         });
     }
-  }, [formId]);
+  }, [formId, user]);
   return (
     <>
       {loading && <Loading />}

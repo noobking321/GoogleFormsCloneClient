@@ -66,7 +66,7 @@ export default function FillForm() {
                 className="text-4xl md:text-5xl m-auto drop-shadow-lg"
                 onClick={submit}
               >
-                <BsFillCheckCircleFill />
+                <BsFillCheckCircleFill className="dark:text-white"/>
               </button>
             </div>
           </div>

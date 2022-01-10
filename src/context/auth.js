@@ -11,7 +11,10 @@ if (localStorage.getItem("jwtToken")) {
     if (decodedToken.exp * 1000 < Date.now()) {
       localStorage.removeItem("jwtToken");
     } else {
-      initialState.user = decodedToken;
+      initialState.user = {
+        ...decodedToken,
+        token: localStorage.getItem("jwtToken"),
+      };
     }
   } catch {
     localStorage.removeItem("jwtToken");
@@ -47,7 +50,7 @@ function AuthProvider(props) {
     localStorage.setItem("jwtToken", token);
     dispatch({
       type: "LOGIN",
-      payload: jwtDecode(token),
+      payload: { ...jwtDecode(token), token },
     });
   }
   function logout() {

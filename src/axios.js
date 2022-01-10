@@ -2,28 +2,32 @@ const axios = require("axios");
 
 const { serverUrl } = require("./config");
 
-const headers = {
-  authorization: `Bearer ${localStorage.getItem("jwtToken")}`,
+const headers = (token) => {
+  return {
+    authorization: `Bearer ${token}`,
+  };
 };
 
-const testReq = () => {
-  return axios.get(`${serverUrl}/`, { headers });
+const testReq = (token) => {
+  return axios.get(`${serverUrl}/`, { headers: headers(token) });
 };
 
-const postForm = (data) => {
-  return axios.post(`${serverUrl}/form`, data, { headers });
+const postForm = (data, token) => {
+  return axios.post(`${serverUrl}/form`, data, { headers: headers(token) });
 };
 
 const getForm = (id) => {
   return axios.get(`${serverUrl}/form/${id}`);
 };
 
-const getForms = (id) => {
-  return axios.get(`${serverUrl}/form/`, { headers });
+const getForms = (token) => {
+  return axios.get(`${serverUrl}/form/`, { headers: headers(token) });
 };
 
-const getResponses = (id) => {
-  return axios.get(`${serverUrl}/form/${id}/response`, { headers });
+const getResponses = (id, token) => {
+  return axios.get(`${serverUrl}/form/${id}/response`, {
+    headers: headers(token),
+  });
 };
 
 const postResponse = (id, data) => {

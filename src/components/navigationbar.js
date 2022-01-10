@@ -5,16 +5,9 @@ import { FaSun, FaMoon } from "react-icons/fa";
 
 import { AuthContext } from "../context/auth";
 
-export default function Navigationbar() {
-  const html = document.querySelector("html");
-  if (localStorage.getItem("darkMode")) {
-    html.classList.add("dark");
-  } else {
-    html.classList.remove("dark");
-  }
-  const user = useContext(AuthContext);
+export default function Navigationbar({ darkMode, setDarkMode }) {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode"));
+  const user = useContext(AuthContext);
   const change_dark_mode = () => {
     const html = document.querySelector("html");
     if (darkMode) {
@@ -84,7 +77,16 @@ export default function Navigationbar() {
         >
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
             <li className="nav-item mx-2">
-              <button className="hover:bg-blue-600 rounded-full" onClick={change_dark_mode}>{darkMode ? <FaSun className="text-white m-3 text-xl" /> : <FaMoon className="text-white m-3 text-xl"/>} </button>
+              <button
+                className="hover:bg-blue-600 rounded-full"
+                onClick={change_dark_mode}
+              >
+                {darkMode ? (
+                  <FaSun className="text-white m-3 text-xl" />
+                ) : (
+                  <FaMoon className="text-white m-3 text-xl" />
+                )}{" "}
+              </button>
             </li>
             {navbars}
           </ul>

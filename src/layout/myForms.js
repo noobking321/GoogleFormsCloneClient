@@ -16,8 +16,9 @@ export default function MyForms() {
     if (!user.user) {
       navigate("../login");
     } else {
+      console.log(user.user);
       setLoading(true);
-      getForms()
+      getForms(user.user.token)
         .then((res) => {
           setLoading(false);
 
@@ -34,8 +35,10 @@ export default function MyForms() {
       {loading && <Loading />}
       {forms && (
         <>
-          <div className="text-4xl mx-52 my-10 dark:text-white">My forms</div>
-          <div className="md:flex flex-wrap mx-40">
+          <div className="text-4xl mx-10 md:mx-52 my-10 dark:text-white">
+            My forms
+          </div>
+          <div className="md:flex flex-wrap md:mx-40">
             <div
               className="bg-amber-100 border-2 border-slate-700 p-24 m-12 rounded-md drop-shadow-lg w-64 dark:text-white dark:bg-slate-700"
               key={0}
