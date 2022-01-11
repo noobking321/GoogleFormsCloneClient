@@ -15,7 +15,6 @@ export default function MyForms() {
     if (!user.user) {
       navigate("../login");
     } else {
-      console.log(user.user);
       setLoading(true);
       getForms(user.user.token)
         .then((res) => {
@@ -40,7 +39,6 @@ export default function MyForms() {
       .then(() => {
         var new_forms = Array.from(forms);
         new_forms[i].enabled = !new_forms[i].enabled;
-        console.log(i);
         setForms(new_forms);
         setLoading(false);
       })

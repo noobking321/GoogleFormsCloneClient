@@ -82,7 +82,7 @@ export default function FillForm() {
           )}
         </>
       )}
-      {error && <div className="text-5xl px-24 py-12 dark:text-white">{error}</div>}
+      {error && <div className="text-3xl md:text-5xl px-5 md:px-24 py-5 md:py-12 dark:text-white">{error}</div>}
     </>
   );
 }

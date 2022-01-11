@@ -96,7 +96,7 @@ export default function FormCreate() {
             </ul>
           )}
         </Droppable>
-        <div className="text-center mb-5 -mt-4">
+        <div className="text-center mb-5 -mt-10 md:-mt-4">
           <button
             className="text-4xl md:text-5xl m-auto drop-shadow-lg p-2"
             onClick={() => {
