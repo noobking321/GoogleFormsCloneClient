@@ -24,6 +24,14 @@ const getForms = (token) => {
   return axios.get(`${serverUrl}/form/`, { headers: headers(token) });
 };
 
+const enableForm = (id, action, token) => {
+  return axios.post(
+    `${serverUrl}/form/${id}/enable`,
+    { action },
+    { headers: headers(token) }
+  );
+};
+
 const getResponses = (id, token) => {
   return axios.get(`${serverUrl}/form/${id}/response`, {
     headers: headers(token),
@@ -46,6 +54,7 @@ module.exports = {
   postForm,
   getForm,
   getForms,
+  enableForm,
   loginUser,
   registerUser,
   getResponses,
