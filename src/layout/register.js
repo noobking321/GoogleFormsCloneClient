@@ -53,11 +53,11 @@ export default function Register() {
   return (
     <div className="md:flex flex-col items-center p-5">
       <div className="bg-white border-2 border-slate-700 m-5 rounded-md drop-shadow-lg md:24 md:px-52 py-20 text-center dark:bg-slate-700 dark:text-white">
-        <div className="text-3xl ml-5 text-left">Register</div>
+        <div className="text-3xl ml-5 md:text-left">Register</div>
         <br />
         <form>
           <input
-            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
+            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg md:w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
             placeholder="First name"
             type="text"
             id="first_name"
@@ -67,13 +67,13 @@ export default function Register() {
             }}
           />
           {errors && (
-            <div className="ml-5 text-red-500 text-left dark:text-white">
+            <div className="ml-5 text-red-500 md:text-left dark:text-white">
               {errors.first_name}
             </div>
           )}
           <br />
           <input
-            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
+            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg md:w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
             placeholder="Last name"
             type="text"
             id="last_name"
@@ -83,13 +83,13 @@ export default function Register() {
             }}
           />
           {errors && (
-            <div className="ml-5 text-red-500 text-left dark:text-white">
+            <div className="ml-5 text-red-500 md:text-left dark:text-white">
               {errors.last_name}
             </div>
           )}
           <br />
           <input
-            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
+            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg md:w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
             placeholder="Username"
             type="username"
             id="username"
@@ -99,11 +99,11 @@ export default function Register() {
             }}
           />
           {errors && (
-            <div className="ml-5 text-red-500 text-left dark:text-white">{errors.username}</div>
+            <div className="ml-5 text-red-500 md:text-left dark:text-white">{errors.username}</div>
           )}
           <br />
           <input
-            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
+            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg md:w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
             placeholder="Email"
             type="email"
             id="email"
@@ -113,11 +113,11 @@ export default function Register() {
             }}
           />
           {errors && (
-            <div className="ml-5 text-red-500 text-left dark:text-white">{errors.email}</div>
+            <div className="ml-5 text-red-500 md:text-left dark:text-white">{errors.email}</div>
           )}
           <br />
           <input
-            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
+            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg md:w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
             placeholder="Password"
             type="password"
             id="password"
@@ -127,11 +127,11 @@ export default function Register() {
             }}
           />
           {errors && (
-            <div className="ml-5 text-red-500 text-left dark:text-white">{errors.password}</div>
+            <div className="ml-5 text-red-500 md:text-left dark:text-white">{errors.password}</div>
           )}
           <br />
           <input
-            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
+            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg md:w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
             placeholder="Confirm password"
             type="password"
             id="confirm_password"
@@ -141,7 +141,7 @@ export default function Register() {
             }}
           />
           {errors && (
-            <div className="ml-5 text-red-500 text-left dark:text-white">
+            <div className="ml-5 text-red-500 md:text-left dark:text-white">
               {errors.confirm_password}
             </div>
           )}

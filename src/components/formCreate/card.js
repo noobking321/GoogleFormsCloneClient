@@ -36,6 +36,15 @@ export default function Card(props) {
             state={props.state}
           />
         );
+      case 3:
+        return (
+          <Dropdown
+            dispatch={props.dispatch}
+            i={props.i}
+            options={props.options}
+            state={props.state}
+          />
+        );
       default:
         return "";
     }

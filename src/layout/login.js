@@ -41,11 +41,11 @@ export default function Login() {
   return (
     <div className="md:flex flex-col items-center p-5">
       <div className=" bg-white border-2 border-slate-700 m-5 rounded-md drop-shadow-lg md:24 md:px-52 py-20 text-center dark:bg-slate-700 dark:text-white">
-        <div className="text-3xl ml-5 text-left">Login</div>
+        <div className="text-3xl ml-5 md:text-left">Login</div>
         <br />
         <form>
           <input
-            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
+            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg md:w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
             placeholder="Username"
             type="username"
             value={username}
@@ -57,14 +57,14 @@ export default function Login() {
           {errors && (
             <>
               <br />
-              <div className="ml-5 text-red-500 text-left dark:text-white">
+              <div className="ml-5 text-red-500 md:text-left dark:text-white">
                 {errors.username}
               </div>
             </>
           )}
           <br />
           <input
-            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
+            className="m-2 md:mr-10 text-l border border-slate-800 rounded-md p-3 text-slate-800 outline-0 focus:outline-2 focus:shadow-lg md:w-96 dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
             placeholder="Password"
             type="password"
             value={password}
@@ -76,7 +76,7 @@ export default function Login() {
           {errors && (
             <>
               <br />
-              <div className="ml-5 text-red-500 text-left dark:text-white">
+              <div className="ml-5 text-red-500 md:text-left dark:text-white">
                 {errors.password}
               </div>
             </>

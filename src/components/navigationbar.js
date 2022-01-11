@@ -85,7 +85,7 @@ export default function Navigationbar({ darkMode, setDarkMode }) {
                   <FaSun className="text-white m-3 text-xl" />
                 ) : (
                   <FaMoon className="text-white m-3 text-xl" />
-                )}{" "}
+                )}
               </button>
             </li>
             {navbars}

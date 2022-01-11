@@ -12,7 +12,7 @@ export default function Home() {
     }
   }, [user, navigate]);
   return (
-    <div className="text-5xl p-20 text-center dark:text-white">
+    <div className="text-5xl p-5 md:p-20 md:text-center dark:text-white">
       <Link to="login" className="text-blue-700 hover:text-blue-400 dark:text-blue-500">
         Login
       </Link>{" "}

@@ -49,7 +49,7 @@ const formReducer = (state, action) => {
         if (action.i !== null) {
           const items = Array.from(state.questions);
           items[action.i].type = action.newType;
-          if (action.newType === 2) {
+          if (config.quetionTypesWithOptions.includes(action.newType)) {
             items[action.i].options = [];
           } else {
             items[action.i].options = null;
