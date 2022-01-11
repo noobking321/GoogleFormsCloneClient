@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { BsFillCheckCircleFill } from "react-icons/bs";
+import { BsCheck } from "react-icons/bs";
 
 import { getForm, postResponse } from "../axios";
 import FormName from "../components/fillForm/formName";
@@ -72,14 +72,12 @@ export default function FillForm() {
           </div>
           {!submited && (
             <div className="fixed bottom-8 right-8 md:bottom-20 md:right-20">
-              <div className="flex">
-                <button
-                  className="text-4xl md:text-5xl m-auto drop-shadow-lg"
-                  onClick={submit}
-                >
-                  <BsFillCheckCircleFill className="dark:text-white" />
-                </button>
-              </div>
+              <button
+                className="text-4xl md:text-5xl drop-shadow-lg"
+                onClick={submit}
+              >
+                <BsCheck className="rounded-full border-2 border-slate-700 bg-white dark:bg-slate-700 dark:text-white drop-shadow-xl" />
+              </button>
             </div>
           )}
         </>

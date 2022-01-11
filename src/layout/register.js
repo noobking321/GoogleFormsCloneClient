@@ -44,8 +44,7 @@ export default function Register() {
         Object.keys(err.response.data.errors).map((val) => {
           const el = document.getElementById(val);
           el.classList.remove("border-slate-800");
-          el.classList.add("dark:border-3");
-          return el.classList.add("border-red-400");
+          return el.classList.add("dark:border-3", "border-red-400");
         });
         setLoading(false);
       });
@@ -99,7 +98,9 @@ export default function Register() {
             }}
           />
           {errors && (
-            <div className="ml-5 text-red-500 md:text-left dark:text-white">{errors.username}</div>
+            <div className="ml-5 text-red-500 md:text-left dark:text-white">
+              {errors.username}
+            </div>
           )}
           <br />
           <input
@@ -113,7 +114,9 @@ export default function Register() {
             }}
           />
           {errors && (
-            <div className="ml-5 text-red-500 md:text-left dark:text-white">{errors.email}</div>
+            <div className="ml-5 text-red-500 md:text-left dark:text-white">
+              {errors.email}
+            </div>
           )}
           <br />
           <input
@@ -127,7 +130,9 @@ export default function Register() {
             }}
           />
           {errors && (
-            <div className="ml-5 text-red-500 md:text-left dark:text-white">{errors.password}</div>
+            <div className="ml-5 text-red-500 md:text-left dark:text-white">
+              {errors.password}
+            </div>
           )}
           <br />
           <input

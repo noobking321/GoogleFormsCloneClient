@@ -32,7 +32,7 @@ function App() {
         <Route exact path="register" element={<Register />} />
         <Route exact path="viewform/:formId" element={<FillForm />} />
         <Route exact path="responses/:formId" element={<Responses />} />
-        <Route path="/404" element={<NotFound />} />
+        <Route path="404" element={<NotFound />} />
       </Routes>
     </>
   );

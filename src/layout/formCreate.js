@@ -1,6 +1,6 @@
 import React, { useReducer, useContext, useEffect, useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import { BsFillPlusCircleFill, BsFillCheckCircleFill } from "react-icons/bs";
+import { BsCheck, BsPlus } from "react-icons/bs";
 import { ImSpinner2 } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 
@@ -96,23 +96,23 @@ export default function FormCreate() {
             </ul>
           )}
         </Droppable>
+        <div className="text-center mb-5 -mt-4">
+          <button
+            className="text-4xl md:text-5xl m-auto drop-shadow-lg p-2"
+            onClick={() => {
+              dispatch({ type: "addCard" });
+            }}
+          >
+            <BsPlus className="rounded-full border-2 border-slate-700 bg-white dark:bg-slate-700 dark:text-white drop-shadow-xl" />
+          </button>
+        </div>
         <div className="fixed bottom-8 right-8 md:bottom-20 md:right-20">
-          <div className="flex">
-            <button
-              className="text-4xl md:text-5xl m-auto drop-shadow-lg"
-              onClick={submit}
-            >
-              <BsFillCheckCircleFill className="dark:text-white"/>
-            </button>
-            <button
-              className="text-4xl md:text-5xl m-auto drop-shadow-lg px-2"
-              onClick={() => {
-                dispatch({ type: "addCard" });
-              }}
-            >
-              <BsFillPlusCircleFill className="dark:text-white"/>
-            </button>
-          </div>
+          <button
+            className="text-4xl md:text-5xl drop-shadow-lg"
+            onClick={submit}
+          >
+            <BsCheck className="rounded-full border-2 border-slate-700 bg-white dark:bg-slate-700 dark:text-white drop-shadow-xl" />
+          </button>
         </div>
       </DragDropContext>
     </>

@@ -50,10 +50,10 @@ export default function MyForms() {
             {forms.map((val, i) => {
               return (
                 <div
-                  className="bg-amber-100 border-2 border-slate-700 p-5 m-12 rounded-md drop-shadow-lg py-10 w-64 dark:text-white dark:bg-slate-700"
+                  className="bg-amber-100 border-2 border-slate-700 p-5 m-12 rounded-md drop-shadow-lg py-10 w-64 dark:text-white dark:bg-slate-700 h-64"
                   key={i + 1}
                 >
-                  <div className="text-3xl mb-10">
+                  <div className="text-3xl mb-10 h-[77px] overflow-y-hidden">
                     <Link to={`../viewform/${val._id}`}>{val.name}</Link>
                   </div>
                   <div className="text-2xl">
