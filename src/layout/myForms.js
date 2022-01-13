@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AiFillFileAdd } from "react-icons/ai";
+import { FaTrash } from "react-icons/fa";
 
-import { getForms, enableForm } from "../axios";
+import { getForms, deleteForm, enableForm } from "../axios";
 import { AuthContext } from "../context/auth";
 import Loading from "../components/loading";
 
@@ -46,6 +47,19 @@ export default function MyForms() {
         alert(err);
       });
   };
+  const delete_form = (i) => {
+    setLoading(true);
+    deleteForm(forms[i]._id, user.user.token)
+      .then(() => {
+        var new_forms = Array.from(forms)
+        new_forms.splice(i, 1)
+        setForms(new_forms);
+        setLoading(false);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  };
   return (
     <>
       {loading && <Loading />}
@@ -80,10 +94,10 @@ export default function MyForms() {
                       {`${val.responses.length} Responses`}
                     </Link>
                   </div>
-                  <div className="flex items-center justify-center w-full mb-12">
+                  <div className="flex items-center justify-center w-full mb-12 mx-8">
                     <label
                       htmlFor={`toggle_${i}`}
-                      className="flex items-center cursor-pointer"
+                      className="flex-1 items-center cursor-pointer"
                     >
                       <div className="relative">
                         <input
@@ -97,8 +111,16 @@ export default function MyForms() {
                         <div className="w-10 h-4 bg-gray-400 rounded-full shadow-inner" />
                         <div className="dot absolute w-6 h-6 bg-white rounded-full shadow -left-1 -top-1 transition" />
                       </div>
-                      <div className="ml-3 text-gray-700 font-medium"></div>
                     </label>
+                    <button
+                      className="flex-1 text-2xl"
+                      index={i}
+                      onClick={() => {
+                        delete_form(i);
+                      }}
+                    >
+                      <FaTrash />
+                    </button>
                   </div>
                 </div>
               );

@@ -20,6 +20,10 @@ const getForm = (id) => {
   return axios.get(`${serverUrl}/form/${id}`);
 };
 
+const deleteForm = (id, token) => {
+  return axios.delete(`${serverUrl}/form/${id}`, { headers: headers(token) });
+};
+
 const getForms = (token) => {
   return axios.get(`${serverUrl}/form/`, { headers: headers(token) });
 };
@@ -53,6 +57,7 @@ const registerUser = (data) => {
 module.exports = {
   postForm,
   getForm,
+  deleteForm,
   getForms,
   enableForm,
   loginUser,
