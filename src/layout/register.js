@@ -4,6 +4,7 @@ import { ImSpinner2 } from "react-icons/im";
 
 import { registerUser } from "../axios";
 import { AuthContext } from "../context/auth";
+import config from "../config";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -40,12 +41,16 @@ export default function Register() {
         }
       })
       .catch((err) => {
-        setErrors(err.response.data.errors);
-        Object.keys(err.response.data.errors).map((val) => {
-          const el = document.getElementById(val);
-          el.classList.remove("border-slate-800");
-          return el.classList.add("dark:border-3", "border-red-400");
-        });
+        if (err.response) {
+          setErrors(err.response.data.errors);
+          Object.keys(err.response.data.errors).map((val) => {
+            const el = document.getElementById(val);
+            el.classList.remove("border-slate-800");
+            return el.classList.add("dark:border-3", "border-red-400");
+          });
+        } else {
+          alert(config.severOfflineMsg);
+        }
         setLoading(false);
       });
   };

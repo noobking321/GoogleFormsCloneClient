@@ -34,16 +34,20 @@ export default function FormCreate() {
         navigate(`/viewform/${res.data.id}`);
       })
       .catch((err) => {
-        setLoading(false);
-        if (
-          err.response.data.errors &&
-          err.response.data.errors.authorization
-        ) {
-          alert("Session Expired");
-          user.logout();
-        } else if (err.response.data.error) {
-          alert(err.response.data.error);
+        if (err.response) {
+          if (
+            err.response.data.errors &&
+            err.response.data.errors.authorization
+          ) {
+            alert("Session Expired");
+            user.logout();
+          } else if (err.response.data.error) {
+            alert(err.response.data.error);
+          }
+        } else {
+          alert(config.severOfflineMsg);
         }
+        setLoading(false);
       });
   };
   return (

@@ -6,6 +6,7 @@ import { FaTrash } from "react-icons/fa";
 import { getForms, deleteForm, enableForm } from "../axios";
 import { AuthContext } from "../context/auth";
 import Loading from "../components/loading";
+import config from "../config";
 
 export default function MyForms() {
   const navigate = useNavigate();
@@ -20,12 +21,15 @@ export default function MyForms() {
       getForms(user.user.token)
         .then((res) => {
           setLoading(false);
-
           setForms(res.data.forms);
         })
-        .catch(() => {
+        .catch((err) => {
+          if (err.response) {
+            alert(err.response.data.error);
+          } else {
+            alert(config.severOfflineMsg);
+          }
           setLoading(false);
-          alert("Error");
         });
     }
   }, [user, navigate]);

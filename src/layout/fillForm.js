@@ -7,6 +7,7 @@ import FormName from "../components/fillForm/formName";
 import Card from "../components/fillForm/card";
 import Loading from "../components/loading";
 import Submitted from "../components/fillForm/submitted";
+import config from "../config";
 
 export default function FillForm() {
   var { formId } = useParams();
@@ -25,8 +26,12 @@ export default function FillForm() {
           setResponse(new Array(res.data.questions.length).fill(null));
         })
         .catch((err) => {
+          if (err.response) {
+            setError(err.response.data.error);
+          } else {
+            setError(config.severOfflineMsg);
+          }
           setLoading(false);
-          setError(err.response.data.error);
         });
     }
   }, [formId]);
@@ -82,7 +87,11 @@ export default function FillForm() {
           )}
         </>
       )}
-      {error && <div className="text-3xl md:text-5xl px-5 md:px-24 py-5 md:py-12 dark:text-white">{error}</div>}
+      {error && (
+        <div className="text-3xl md:text-5xl px-5 md:px-24 py-5 md:py-12 dark:text-white">
+          {error}
+        </div>
+      )}
     </>
   );
 }
