@@ -14,7 +14,7 @@ export default function LongAnswer({ response, setResponse, i }) {
     <div>
       <div className="flex">
         <textarea
-          className="flex-1 md:m-10 text-xl border border-slate-800 p-2 text-slate-800 rounded-lg focus:drop-shadow-lg h-fit sm:w-full dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
+          className="flex-1 md:m-10 text-xl border border-gray-300 p-2 text-slate-800 rounded-lg focus:drop-shadow-lg  h-fit sm:w-full dark:bg-slate-600 dark:text-white dark:placeholder-slate-300"
           placeholder="Long answer..."
           value={response[i]}
           onChange={on_change}
