@@ -2,43 +2,45 @@ const axios = require("axios");
 
 const { serverUrl } = require("./config");
 
-const headers = (token) => {
+
+const headers = () => {
+  const token = localStorage.getItem("jwtToken");
   return {
     authorization: `Bearer ${token}`,
   };
 };
 
-const testReq = (token) => {
-  return axios.get(`${serverUrl}/`, { headers: headers(token) });
+const testReq = () => {
+  return axios.get(`${serverUrl}/`, { headers: headers() });
 };
 
-const postForm = (data, token) => {
-  return axios.post(`${serverUrl}/form`, data, { headers: headers(token) });
+const postForm = (data) => {
+  return axios.post(`${serverUrl}/form`, data, { headers: headers() });
 };
 
 const getForm = (id) => {
   return axios.get(`${serverUrl}/form/${id}`);
 };
 
-const deleteForm = (id, token) => {
-  return axios.delete(`${serverUrl}/form/${id}`, { headers: headers(token) });
+const deleteForm = (id) => {
+  return axios.delete(`${serverUrl}/form/${id}`, { headers: headers() });
 };
 
-const getForms = (token) => {
-  return axios.get(`${serverUrl}/form/`, { headers: headers(token) });
+const getForms = () => {
+  return axios.get(`${serverUrl}/form/`, { headers: headers() });
 };
 
-const enableForm = (id, action, token) => {
+const enableForm = (id, action) => {
   return axios.post(
     `${serverUrl}/form/${id}/enable`,
     { action },
-    { headers: headers(token) }
+    { headers: headers() }
   );
 };
 
-const getResponses = (id, token) => {
+const getResponses = (id) => {
   return axios.get(`${serverUrl}/form/${id}/response`, {
-    headers: headers(token),
+    headers: headers(),
   });
 };
 

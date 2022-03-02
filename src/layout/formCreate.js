@@ -29,7 +29,7 @@ export default function FormCreate() {
   const [loading, setLoading] = useState(false);
   const submit = () => {
     setLoading(true);
-    postForm(state, user.user.token)
+    postForm(state)
       .then((res) => {
         navigate(`/viewform/${res.data.id}`);
       })

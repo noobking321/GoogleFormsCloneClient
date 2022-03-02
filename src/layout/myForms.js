@@ -18,7 +18,7 @@ export default function MyForms() {
       navigate("../login");
     } else {
       setLoading(true);
-      getForms(user.user.token)
+      getForms()
         .then((res) => {
           setLoading(false);
           setForms(res.data.forms);
@@ -40,7 +40,7 @@ export default function MyForms() {
     if (forms[i].enabled) {
       action = "disable";
     }
-    enableForm(forms[i]._id, action, user.user.token)
+    enableForm(forms[i]._id, action)
       .then(() => {
         var new_forms = Array.from(forms);
         new_forms[i].enabled = !new_forms[i].enabled;
@@ -53,7 +53,7 @@ export default function MyForms() {
   };
   const delete_form = (i) => {
     setLoading(true);
-    deleteForm(forms[i]._id, user.user.token)
+    deleteForm(forms[i]._id)
       .then(() => {
         var new_forms = Array.from(forms)
         new_forms.splice(i, 1)

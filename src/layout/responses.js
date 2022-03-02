@@ -16,7 +16,7 @@ export default function Responses() {
   useEffect(() => {
     setLoading(true);
     if (formId) {
-      getResponses(formId, user.user.token)
+      getResponses(formId)
         .then((res) => {
           setLoading(false);
           setQuestions(generateQues(res.data.questions));
