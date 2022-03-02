@@ -20,7 +20,7 @@ export default function Dropdown(props) {
     props.dispatch({ type: "changeOptions", i: props.i, options: items });
   };
   const option_delete = (e) => {
-    const index = parseInt(e.target.getAttribute("index"));
+    const index = parseInt(e.target.parentNode.getAttribute("index"));
     const items = Array.from(props.options);
     items.splice(index, 1);
     props.dispatch({ type: "changeOptions", i: props.i, options: items });
@@ -82,7 +82,7 @@ export default function Dropdown(props) {
                             {val && (
                               <>
                                 <button onClick={option_delete} index={index}>
-                                  <FaTrash className="text-l drop-shadow-lg dark:text-white" />
+                                  <FaTrash className="text-l drop-shadow-lg dark:text-white" index={index} />
                                 </button>
                               </>
                             )}
