@@ -47,7 +47,7 @@ export default function Card(props) {
     }
   };
   return (
-    <div className="bg-white border-2 border-slate-700 p-5 m-5 rounded-md drop-shadow-lg py-10 md:w-2/5 dark:bg-slate-700">
+    <div className="bg-white border-2 border-slate-700 p-5 m-5 rounded-md drop-shadow-lg py-10 md:w-2/5 dark:bg-slate-700 grow-animate">
       <div className="md:mx-12 my-5 text-slate-800 outline-0 border-b border-slate-200 text-4xl placeholder-slate-600 dark:text-white dark:border-slate-600">
         {props.question}
       </div>

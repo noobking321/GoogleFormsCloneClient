@@ -6,3 +6,21 @@ input:checked ~ .dot {
   transform: translateX(100%);
   background-color: #2563eb;
 }
+
+.grow-hover{
+  transition: all 0.2s ease-in;
+}
+
+.grow-hover:hover{
+  transform: scale(1.03);
+}
+
+
+.grow-animate {
+  animation: grow .5s;
+}
+
+@keyframes grow {
+  from { transform: scale(0)}
+  to   { transform: scale(1)}
+}

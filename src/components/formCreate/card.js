@@ -50,7 +50,7 @@ export default function Card(props) {
     }
   };
   return (
-    <div className="bg-white border-2 border-slate-700 p-5 m-10 mt-0 rounded-md drop-shadow-lg py-10 dark:bg-slate-700">
+    <div className="bg-white border-2 border-slate-700 p-5 m-10 mt-0 rounded-md drop-shadow-lg py-10 dark:bg-slate-700 grow-animate">
       <div className="">
         <div
           className=" text-2xl bg-white p-2.5 rounded-full border-2 border-slate-700 z-10 inline-block absolute -top-5 -left-5 drop-shadow-xl dark:bg-slate-700 dark:text-white"

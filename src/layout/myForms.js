@@ -74,7 +74,7 @@ export default function MyForms() {
           </div>
           <div className="md:flex flex-wrap md:mx-40">
             <div
-              className="bg-amber-100 border-2 border-slate-700 p-24 m-12 rounded-md drop-shadow-lg w-64 dark:text-white dark:bg-slate-700"
+              className="bg-amber-100 border-2 border-slate-700 p-24 m-12 rounded-md drop-shadow-lg w-64 dark:text-white dark:bg-slate-700 grow-animate grow-hover"
               key={0}
             >
               <Link className="text-6xl" to={"../createform/"}>
@@ -84,7 +84,7 @@ export default function MyForms() {
             {forms.map((val, i) => {
               return (
                 <div
-                  className="bg-amber-100 border-2 border-slate-700 p-5 m-12 rounded-md drop-shadow-lg py-10 w-64 dark:text-white dark:bg-slate-700 h-64"
+                  className="bg-amber-100 border-2 border-slate-700 p-5 m-12 rounded-md drop-shadow-lg py-10 w-64 dark:text-white dark:bg-slate-700 h-64 grow-animate grow-hover"
                   key={i + 1}
                 >
                   <div className="text-3xl mb-8 max-h-[77px] overflow-y-hidden">
