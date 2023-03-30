@@ -1,5 +1,5 @@
 const config = {
-  serverUrl: "https://formserver.dexterpro.site",
+  serverUrl: "https://googleformscloneserver-production.up.railway.app",
   untitledFormName: "Untitled form",
   type_options: ["Short Answer", "Long Answer", "Dropdown", "MCQ"],
   quetionTypesWithOptions: [2, 3],
